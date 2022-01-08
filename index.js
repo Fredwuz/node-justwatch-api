@@ -103,7 +103,8 @@ class JustWatch {
 			'cinema_release': null,
 			'query': null,
 			'page': null,
-			'page_size': null
+			'page_size': null,
+			'fields':['credits','title','object_type','original_release_year']
 		};
 		const paramKeys = Object.keys(params);
 		// validate options
