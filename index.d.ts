@@ -6,7 +6,7 @@ declare module "justwatch-api" {
     getGenres(): Promise<Genre[]>;
     getSeason(season_id: number): Promise<Season>;
     getEpisodes(show_id: number): Promise<Episode[]>;
-    getTitle(content_type: ContentType, title_id: TitleID): Promise<Title>;
+    getTitle(content_type: string, title_id: TitleID): Promise<Title>;
     getPerson(person_id: number): Promise<Person>;
   }
 
@@ -15,27 +15,28 @@ declare module "justwatch-api" {
   };
 
   export type SearchInput = {
-    cinema_release: null;
-    content_types: ContentType[];
-    genres: string[];
-    languages: string[];
-    max_price: unknown;
-    min_price: unknown;
-    monetization_types: MonetizationType[];
-    page_size: number;
-    page: number;
-    presentation_types: PresentationType[];
-    providers: Provider[];
+    cinema_release?: null;
+    content_types?: string[];
+    genres?: string[];
+    languages?: string[];
+    max_price?: unknown;
+    min_price?: unknown;
+    monetization_types?: MonetizationType[];
+    page_size?: number;
+    page?: number;
+    presentation_types?: PresentationType[];
+    providers?: Provider[];
     query: string;
-    release_year_from: unknown;
-    release_year_until: unknown;
-    scoring_filter_types: unknown;
+    release_year_from?: unknown;
+    release_year_until?: unknown;
+    scoring_filter_types?: unknown;
   };
 
-  export enum ContentType {
+/*   export enum ContentType {
     Movie = "movie",
     Show = "show",
-  }
+    Show_season = "show_season",
+  } */
 
   export type TitleID = number;
   export interface Title {
@@ -63,6 +64,8 @@ declare module "justwatch-api" {
     production_countries: string[];
     cinema_release_date: string;
     permanent_audiences: string[];
+    show_title: string;
+    show_id: number;
   }
 
   export interface Externalid {
